@@ -1,7 +1,7 @@
 # DB 設計
 
 ## users table
-
+ 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 | nickname           | string              | null: false, unique: true |
@@ -10,7 +10,7 @@
 | name               | string              | null: false               |
 | name_kana          | string              | null: false               |
 | birthday           | string              | null: false               |
-
+ 
 ### Association
 
 * has_many :items
