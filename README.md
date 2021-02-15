@@ -1,19 +1,21 @@
 # DB 設計
 
 ## users table
-
+ 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 | nickname           | string              | null: false, unique: true |
-| e-mail             | string              | null: false, unique: true |
-| password           | string              | null: false               |
-| name               | string              | null: false               |
-| name_kana          | string              | null: false               |
-| birthday           | string              | null: false               |
-
+| email              | string              | null: false, unique: true |
+| encrypted_password | string              | null: false               |
+| last_name          | string              | null: false               |
+| first_name         | string              | null: false               |
+| kana_lastname      | string              | null: false               |
+| kana_firstname     | string              | null: false               |
+| birthday           | date                | null: false               |
+ 
 ### Association
-
 * has_many :items
+* has_many :purchasings
 
 
 ## items table
@@ -21,13 +23,14 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | user               | references          | foreign_key: true       |
-| image              | string              | null: false             |
-| price              | string              | null: false             |
+| price              | integer             | null: false             |
 | name               | string              | null: false             |
-| condition          | text                | null: false             |
-| delivery_fee       | string              | null: false             |
-| area               | string              | null: false             |
-| shipment_date      | string              | null: false             |
+| explanation        | text                | null: false             |
+| category_id        | integer             | null: false             |
+| condition_id       | integer             | null: false             |
+| delivery_fee_id    | integer             | null: false             |
+| prefecture_id      | integer             | null: false             |
+| shipment_date_id   | integer             | null: false             |
 
 ### Association
 
@@ -39,14 +42,13 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| payment_amount     | string              | null: false             |
-| card_number        | string              | null: false             |
-| expiration_date    | string              | null: false             |
-| security_code      | string              | null: false             |
-| address            | references          | foreign_key: true       |
+| user               | references          | foreign_key: true       |
+| item               | references          | foreign_key: true       |
 
 ### Association
  
+* belongs_to :user
+* belongs_to :item
 * has_one : address
 
 
@@ -54,11 +56,12 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
+| purchasing         | references          | foreign_key: true       |
 | postcode           | string              | null: false             |
-| prefecture         | string              | null: false             |
+| prefecture_id      | integer             | null: false             |
 | town               | string              | null: false             |
 | house_number       | string              | null: false             |
-| building_name      | string              | null: false             |
+| building_name      | string              |                         |
 | phone              | string              | null: false             |
 
 ### Association
