@@ -5,7 +5,7 @@
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 | nickname           | string              | null: false, unique: true |
-| e-mail             | string              | null: false, unique: true |
+| email              | string              | null: false, unique: true |
 | encrypted_password | string              | null: false               |
 | last_name          | string              | null: false               |
 | first_name         | string              | null: false               |
@@ -34,7 +34,7 @@
 
 ### Association
 
-* belongs_to :users
+* belongs_to :user
 * has_one : purchasing
 
 
@@ -42,12 +42,13 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| purchasing         | references          | foreign_key: true       |
+| user               | references          | foreign_key: true       |
+| item               | references          | foreign_key: true       |
 
 ### Association
  
 * belongs_to :user
-* belongs_to :purchasing
+* belongs_to :item
 * has_one : address
 
 
@@ -55,11 +56,12 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
+| purchasing         | references          | foreign_key: true       |
 | postcode           | string              | null: false             |
 | prefecture_id      | integer             | null: false             |
 | town               | string              | null: false             |
 | house_number       | string              | null: false             |
-| building_name      | string              | null: false             |
+| building_name      | string              |                         |
 | phone              | string              | null: false             |
 
 ### Association
