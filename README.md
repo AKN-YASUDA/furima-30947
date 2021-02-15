@@ -6,10 +6,12 @@
 |--------------------|---------------------|---------------------------|
 | nickname           | string              | null: false, unique: true |
 | e-mail             | string              | null: false, unique: true |
-| password           | string              | null: false               |
-| name               | string              | null: false               |
-| name_kana          | string              | null: false               |
-| birthday           | string              | null: false               |
+| encrypted_password | string              | null: false               |
+| last_name          | string              | null: false               |
+| first_name         | string              | null: false               |
+| kana_lastname      | string              | null: false               |
+| kana_firstname     | string              | null: false               |
+| birthday           | date                | null: false               |
  
 ### Association
 
@@ -22,10 +24,10 @@
 |--------------------|---------------------|-------------------------|
 | user               | references          | foreign_key: true       |
 | image              | string              | null: false             |
-| price              | string              | null: false             |
+| price              | integer             | null: false             |
 | name               | string              | null: false             |
 | condition          | text                | null: false             |
-| delivery_fee       | string              | null: false             |
+| delivery_fee       | integer             | null: false             |
 | area               | string              | null: false             |
 | shipment_date      | string              | null: false             |
 
@@ -39,10 +41,10 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| payment_amount     | string              | null: false             |
-| card_number        | string              | null: false             |
-| expiration_date    | string              | null: false             |
-| security_code      | string              | null: false             |
+| payment_amount     | integer             | null: false             |
+| card_number        | integer             | null: false             |
+| expiration_date    | date                | null: false             |
+| security_code      | integer             | null: false             |
 | address            | references          | foreign_key: true       |
 
 ### Association
@@ -59,7 +61,7 @@
 | town               | string              | null: false             |
 | house_number       | string              | null: false             |
 | building_name      | string              | null: false             |
-| phone              | string              | null: false             |
+| phone              | integer             | null: false             |
 
 ### Association
 
