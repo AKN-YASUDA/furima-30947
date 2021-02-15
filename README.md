@@ -23,12 +23,11 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | user               | references          | foreign_key: true       |
-| image              | string              | null: false             |
 | price              | integer             | null: false             |
 | name               | string              | null: false             |
 | condition          | text                | null: false             |
 | delivery_fee       | integer             | null: false             |
-| area               | string              | null: false             |
+| area_id            | integer             | null: false             |
 | shipment_date      | string              | null: false             |
 
 ### Association
@@ -42,9 +41,6 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | payment_amount     | integer             | null: false             |
-| card_number        | integer             | null: false             |
-| expiration_date    | date                | null: false             |
-| security_code      | integer             | null: false             |
 | address            | references          | foreign_key: true       |
 
 ### Association
@@ -57,7 +53,7 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | postcode           | string              | null: false             |
-| prefecture         | string              | null: false             |
+| prefecture_id      | integer             | null: false             |
 | town               | string              | null: false             |
 | house_number       | string              | null: false             |
 | building_name      | string              | null: false             |
