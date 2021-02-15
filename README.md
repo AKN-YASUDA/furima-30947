@@ -14,8 +14,8 @@
 | birthday           | date                | null: false               |
  
 ### Association
-
 * has_many :items
+* has_many :purchasings
 
 
 ## items table
@@ -25,14 +25,16 @@
 | user               | references          | foreign_key: true       |
 | price              | integer             | null: false             |
 | name               | string              | null: false             |
-| condition          | text                | null: false             |
-| delivery_fee       | integer             | null: false             |
+| explanation        | text                | null: false             |
+| category_id        | integer             | null: false             |
+| condition_id       | integer             | null: false             |
+| delivery_fee_id    | integer             | null: false             |
 | area_id            | integer             | null: false             |
-| shipment_date      | string              | null: false             |
+| shipment_date_id   | integer             | null: false             |
 
 ### Association
 
-* belongs_to :user
+* belongs_to :users
 * has_one : purchasing
 
 
@@ -40,11 +42,12 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| payment_amount     | integer             | null: false             |
-| address            | references          | foreign_key: true       |
+| purchasing         | references          | foreign_key: true       |
 
 ### Association
  
+* belongs_to :user
+* belongs_to :purchasing
 * has_one : address
 
 
@@ -57,7 +60,7 @@
 | town               | string              | null: false             |
 | house_number       | string              | null: false             |
 | building_name      | string              | null: false             |
-| phone              | integer             | null: false             |
+| phone              | string              | null: false             |
 
 ### Association
 
