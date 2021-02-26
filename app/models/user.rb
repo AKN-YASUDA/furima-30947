@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  with_options presence: true do
   validates :password, format: { with: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/}
+  end
   validates :nickname, presence: true
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ン\p{Han}]/}
   validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン\p{Han}]/ }
