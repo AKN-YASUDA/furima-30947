@@ -1,5 +1,5 @@
 class PurchasingController < ApplicationController
   def show
-    @purchasing = Parchasing.find(params[:id])
+    @purchasing = Parchasing.order(created_at: :desc)
   end
 end

@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :prefecture
+  belongs_to :delivery_fee
   belongs_to :shipment_date
   belongs_to :user
   has_one :purchasing, dependent: :destroy
