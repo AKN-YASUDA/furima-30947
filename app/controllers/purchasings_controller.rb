@@ -38,6 +38,8 @@ class PurchasingsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @item.user
+    if current_user.id == @item.user_id
+      redirect_to root_path 
+    end
   end
 end
