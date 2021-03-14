@@ -7,11 +7,11 @@ class FormObject
     validates :town
     validates :house_number
     validates :phone,  numericality: { only_integer: true }, format: { with: /\A[0-9]{,11}\z/ }
-    validates :prefecture_id, numericality: { other_than: 0 }
+    validates :prefecture_id, numericality: { other_than: 1 }
     validates :user_id
     validates :item_id
     validates :token
-    end
+  end
 
   def save
     @purchasing = Purchasing.create(item_id: item_id, user_id: user_id)
